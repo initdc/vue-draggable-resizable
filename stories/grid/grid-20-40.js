@@ -1,4 +1,5 @@
 import Vue from 'vue'
+
 let style = {
   position: 'relative',
   backgroundColor: '#808080',
@@ -27,11 +28,12 @@ export default () => ({
     return {
       gridx: gridx,
       gridy: gridy,
-      st: st
+      st: st,
+      msg: "今天买菜预见超市促销大降价, 我嘞了去, 🐮🍺"
     }
   },
   methods: {
-    showGrid (newx, newy) {
+    showGrid(newx, newy) {
       let newst = setStyle(newx, newy)
       this.$nextTick(function () {
         this.gridx = newx
@@ -48,8 +50,9 @@ export default () => ({
   },
   template: `
     <div :style="st">
-    <vue-draggable-resizable :grid="[gridx,gridy]" :x="0" :y="0" @dragging="showGrid(50,100)" @resizing="showGrid(50,100)" @deactivated="showGrid(0,0)">
-      <p>Grid 20x40 starting from the top-left corner</p>
+    <vue-draggable-resizable :grid="[gridx,gridy]" :x="0" :y="0" @dragging="showGrid(50,100)"
+                             @resizing="showGrid(50,100)" @deactivated="showGrid(0,0)">
+      <textarea v-model="msg" style="width: 200px; height: 200px"></textarea>
     </vue-draggable-resizable>
     </div>
   `
