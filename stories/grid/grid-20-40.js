@@ -52,7 +52,7 @@ export default () => ({
     <div :style="st">
     <vue-draggable-resizable :grid="[gridx,gridy]" :x="0" :y="0" @dragging="showGrid(50,100)"
                              @resizing="showGrid(50,100)" @deactivated="showGrid(0,0)">
-      <textarea v-model="msg" style="width: 200px; height: 200px"></textarea>
+      <textarea v-model="msg" style="width: 200px; height: 200px"/>
     </vue-draggable-resizable>
     </div>
   `
